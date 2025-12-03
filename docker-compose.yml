@@ -1,0 +1,7 @@
+services:
+  wordpress:
+    build: .
+    ports:
+      - "8081:80"
+    volumes:
+      - ./wordpress:/var/www/html
