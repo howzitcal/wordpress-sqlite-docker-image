@@ -6,8 +6,11 @@ RUN touch /var/log/nginx/access.log
 
 RUN mkdir /var/www/html
 
-COPY ./wordpress/* /var/www/html
 COPY ./configs/nginx.conf /etc/nginx/http.d/default.conf
+COPY ./configs/php.ini /etc/php84/conf.d/custom.ini
+
+RUN mkdir /scripts
+COPY ./scripts/ /scripts/
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh

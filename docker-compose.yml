@@ -4,4 +4,4 @@ services:
     ports:
       - "8081:80"
     volumes:
-      - ./wordpress:/var/www/html
+      - ./wordpress:/var/www/wordpress
