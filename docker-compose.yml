@@ -1,7 +1,8 @@
 services:
   wordpress:
     build: .
+    user: "1000:1000"
     ports:
       - "8081:80"
     volumes:
-      - ./wordpress:/var/www/wordpress
+      - ./wordpress:/var/www/wordpress:rw
