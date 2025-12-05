@@ -11,6 +11,7 @@ else
     echo "File $WP_CONFIG does not exist installing wordpress."
     source /scripts/get_latest_wordpress.sh
     source /scripts/patch_wordpress_for_sqlite.sh
+    source /scripts/patch_for_reverse_proxy.sh
 fi
 
 chown 65534:65534 -R /var/www/wordpress
