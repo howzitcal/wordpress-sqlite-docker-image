@@ -1,14 +1,7 @@
 #!/bin/sh
 
-SECURE_HTTPS=$(cat <<END
-if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
-    $_SERVER['HTTPS'] = 'on';
-}
-END
-)
+WP_PATH="/var/www/wordpress"
 
-sed -i "1r $SECURE_HTTPS" "$WP_PATH/wp-config.php"
+SSL_FIX="if (isset(\$_SERVER['HTTP_X_FORWARDED_PROTO']) && \$_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') { \$_SERVER['HTTPS'] = 'on'; }"
 
-
-
-
+sed -i "2i $SSL_FIX" "$WP_PATH/wp-config.php"
