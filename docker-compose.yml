@@ -1,7 +1,6 @@
 services:
   wordpress:
     build: .
-    user: "1000:1000"
     ports:
       - "8081:80"
     volumes:

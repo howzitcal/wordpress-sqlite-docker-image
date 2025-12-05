@@ -1,10 +1,12 @@
 FROM alpine
 
-RUN apk add nginx curl php84 php84-fpm php84-pdo_mysql php84-mysqli php84-curl php84-json php84-gd php84-mbstring php84-sqlite3 php84-pdo_sqlite
-
-RUN touch /var/log/nginx/access.log
-
-RUN mkdir /var/www/html
+RUN apk add --no-cache \
+    nginx curl \
+    php84 php84-fpm php84-opcache \
+    php84-pdo_mysql php84-mysqli \
+    php84-curl php84-json php84-gd php84-mbstring \
+    php84-sqlite3 php84-pdo_sqlite \
+    php84-ctype php84-session php84-xml php84-tokenizer
 
 COPY ./configs/nginx.conf /etc/nginx/http.d/default.conf
 COPY ./configs/php.ini /etc/php84/conf.d/custom.ini

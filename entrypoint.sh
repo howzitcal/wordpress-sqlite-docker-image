@@ -13,6 +13,8 @@ else
     source /scripts/patch_wordpress_for_sqlite.sh
 fi
 
+chown 65534:65534 -R /var/www/wordpress
+
 # Start Nginx in the background
 nginx -g "daemon on;"
 
